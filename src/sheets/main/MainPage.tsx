@@ -1,6 +1,4 @@
-import React from 'react'
 import green from '../../assets/green.jpg'
-import { Button } from '@mui/material'
 // import { Button } from '@mui/material'
 
 const MainPage = () => {

@@ -9,10 +9,10 @@ import { alpha, styled } from '@mui/material/styles'
 import { Link } from 'react-router-dom'
 import { pages } from '../constants/Constants'
 import './Header.css'
-import { useEffect, useState } from 'react'
-import { useAppDispatch } from '../../hooks/redux-hooks'
-import { searchProducts } from '../../features/slices/ProductSlice'
-import useDebounce from '../../hooks/redux-hooks'
+// import { useEffect, useState } from 'react'
+// import { useAppDispatch } from '../../hooks/redux-hooks'
+// import { searchProducts } from '../../features/slices/ProductSlice'
+// import useDebounce from '../../hooks/redux-hooks'
 
 const Search = styled('div')(({ theme }) => ({
 	position: 'relative',
@@ -57,17 +57,17 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 
 function Header() {
-	const [query, setQuery] = useState('')
-	const dispatch = useAppDispatch()
-    const debounceQuery = useDebounce(query, 400)
+	// const [query, setQuery] = useState('')
+	// const dispatch = useAppDispatch()
+    // const debounceQuery = useDebounce(query, 400)
 
 
-	useEffect(() => {
-		if (debounceQuery) {
-			dispatch(searchProducts(debounceQuery))
-		}
+	// useEffect(() => {
+	// 	if (debounceQuery) {
+	// 		dispatch(searchProducts(debounceQuery))
+	// 	}
 		
-	}, [debounceQuery, dispatch])
+	// }, [debounceQuery, dispatch])
 	
 
 	return (
@@ -108,7 +108,7 @@ function Header() {
 							<StyledInputBase
 								placeholder='Search…'
 								inputProps={{ 'aria-label': 'search' }}
-								onChange={(e) => setQuery(e.target.value)}
+								// onChange={(e) => setQuery(e.target.value)}
 							/>
 						</Search>
 					</Box>

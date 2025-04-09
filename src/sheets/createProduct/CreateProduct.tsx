@@ -8,9 +8,7 @@ const CreateProduct = () => {
 	const [description, setDescription] = useState<string>('')
 	const [categoryId, setCategoryId] = useState<number>()
 	const [images, setImages] = useState<string[]>([''])
-	// const [loading, setLoading] = useState<string>('')
-	// const [error, setError] = useState<string>('')
-
+	
     // const navigate = useNavigate()
 
 	const handleImageUrlChange = (
@@ -28,7 +26,6 @@ const CreateProduct = () => {
     const handleSubmit = async() => {
         if (title && price > 0 && images.every(url => url !=='')) {
             try {
-                setLoading(true)
                 const product = {
                     title,
                     price,
@@ -37,6 +34,7 @@ const CreateProduct = () => {
                     images
                 }
                 const response = await axios.post('https://api.escuelajs.co/api/v1/products/', product)
+				return response.data
                 
                 alert('Продукт успешно создан')
                 // Navigate('/')

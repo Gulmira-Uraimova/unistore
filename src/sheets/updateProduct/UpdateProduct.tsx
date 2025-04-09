@@ -55,6 +55,7 @@ const UpdateProduct = () => {
               }
               const response = await axios.put(
                 `https://api.escuelajs.co/api/v1/products/${id}`, updateProduct)
+				return response.data
                 alert('Продукт изменен!')
                 navigate('/products')
             } catch (error) {

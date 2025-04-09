@@ -7,7 +7,7 @@ export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
 
 
 
-const useDebounce = <T> (value: Text, delay: number) => {
+const useDebounce =  (value: Text, delay: number) => {
     const [debounceValue, setDebounceValue] = useState(value)
 
     useEffect(() => {

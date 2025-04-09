@@ -27,7 +27,7 @@ const ProductDetails = () => {
 		navigate('/products')
 	}
 	const handleAddToCart = (product: CartItem) => {
-		dispatch(addToCart(product))
+		dispatch(addToCart({...product, quantity: 1 }))
 	}
 
 	useEffect(() => {
@@ -94,7 +94,7 @@ const ProductDetails = () => {
 
 						<button
 							className='w-[200px] h-[40px] rounded-lg bg-green-700 mt-10 ml-[100px]'
-							onClick={() => handleAddToCart(productById)}
+							onClick={() => handleAddToCart({...productById, quantity: 1 })}
 						>
 							Добавить в корзину
 						</button>
