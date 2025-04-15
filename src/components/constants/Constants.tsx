@@ -21,4 +21,9 @@ export const pages: HeaderNavText[] = [
 		title: 'Создать',
 		path: '/create-product',
 	},
+	{
+		id: 5,
+		title: 'Нравится',
+		path: '/favorite-products',
+	},
 ]

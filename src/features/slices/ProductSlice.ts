@@ -87,8 +87,15 @@ const ProductSlice = createSlice({
         },
         setCurrentPage: (state, action: PayloadAction<number>) => {
             state.currentPage = action.payload
+        },
+        toggleLike: (state, action: PayloadAction<number>) => {
+            const product = state.filteredProducts.find(p => p.id === action.payload)
+            if (product) {
+                product.like = !product.like
+            }
         }
     },
+    
     extraReducers: build => {
         build
         .addCase(fetchProducts.pending, (state) => {
@@ -96,8 +103,8 @@ const ProductSlice = createSlice({
         })
         .addCase(fetchProducts.fulfilled, (state, action: PayloadAction<Product[]>) => {
             state.loading = false;
-            state.products = action.payload;
-            state.filteredProducts = action.payload
+            state.products = action.payload.map(product => ({ ...product, like: false }));
+            state.filteredProducts = action.payload.map(product => ({ ...product, like: false }))
         })
         .addCase(fetchProducts.rejected, (state) => {
             state.loading = false
@@ -142,5 +149,5 @@ const ProductSlice = createSlice({
     }
 })
 
-export const { filterByCategory, setCurrentPage } = ProductSlice.actions
+export const { filterByCategory, setCurrentPage, toggleLike } = ProductSlice.actions
 export default ProductSlice.reducer
